@@ -16,7 +16,7 @@ public class LessonOne_ObservableStreams {
 
     @Test
     public void simpleSubscription() {
-        Observable.just(42).subscribe(integer -> assertThat(integer).isEqualTo(____));
+        Observable.just(42).subscribe(integer -> assertThat(integer).isEqualTo(____);
     }
 
     @Test
