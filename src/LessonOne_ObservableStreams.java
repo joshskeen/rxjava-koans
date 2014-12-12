@@ -12,10 +12,11 @@ public class LessonOne_ObservableStreams {
     private Integer mReceivedInteger;
     private String mStatus;
     private Object _____;
+    private int ____;
 
     @Test
     public void simpleSubscription() {
-        Observable.just(42).subscribe(integer -> assertThat(integer).isEqualTo(42));
+        Observable.just(42).subscribe(integer -> assertThat(integer).isEqualTo(____));
     }
 
     @Test
