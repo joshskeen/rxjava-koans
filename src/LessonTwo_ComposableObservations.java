@@ -12,6 +12,7 @@ public class LessonTwo_ComposableObservations {
     public String mValueB;
     public Boolean mBooleanValue;
     private Object _____;
+    private int ____;
 
     @Test
     public void composableAddition() {
@@ -54,7 +55,7 @@ public class LessonTwo_ComposableObservations {
     public void creatingAMoreRelevantEventStream() {
         mValueA = "";
         final int windowTopX = 50;
-        Observable.just(100, 200, 150).map(integer -> integer - windowTopX).subscribe(integer -> mValueA += integer + ", ");
+        Observable.just(100, 200, 150).map(integer -> integer - ____).subscribe(integer -> mValueA += integer + ", ");
         assertThat(mValueA).isEqualTo("50, 150, 100, ");
     }
 
