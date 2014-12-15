@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/rxJavaKoans.iml" filepath="$PROJECT_DIR$/rxJavaKoans.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rxjava-koans.iml" filepath="$PROJECT_DIR$/rxjava-koans.iml" />
     </modules>
   </component>
 </project>
