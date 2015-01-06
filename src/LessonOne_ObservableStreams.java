@@ -9,7 +9,6 @@ import static org.fest.assertions.Assertions.assertThat;
 public class LessonOne_ObservableStreams {
 
     private Object mReceived;
-    private Integer mReceivedInteger;
     private Integer mSum;
     private String mStatus;
     private Object _____;
@@ -73,11 +72,11 @@ public class LessonOne_ObservableStreams {
      */
     @Test
     public void nothingListensUntilYouSubscribe() {
-        mReceivedInteger = 0;
-        Observable<Integer> numbers = Observable.range(1, 10).doOnNext(integer -> mReceivedInteger += integer);
-        assertThat(mReceivedInteger).isEqualTo(0);
+        mSum = 0;
+        Observable<Integer> numbers = Observable.range(1, 10).doOnNext(integer -> mSum += integer);
+        assertThat(mSum).isEqualTo(0);
 //        numbers.____();
-        assertThat(mReceivedInteger).isEqualTo(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10);
+        assertThat(mSum).isEqualTo(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10);
     }
 
 }
