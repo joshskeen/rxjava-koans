@@ -28,7 +28,7 @@ public class LessonOne_ObservableStreams {
 
     @Test
     public void theLastEvent() {
-        mReceived = 0;
+        mReceived = "";
         Observable.just("Foo", "Bar").subscribe(string -> mReceived = string);
 
         assertThat(mReceived).isEqualTo(_____);
