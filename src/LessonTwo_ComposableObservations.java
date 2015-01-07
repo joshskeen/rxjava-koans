@@ -14,6 +14,14 @@ public class LessonTwo_ComposableObservations {
     private Object _____;
     private int ____;
 
+    /*
+    Before when we added up each emitted item, we did the addition ourselves
+    (see LessonOne.everythingCounts() ). Each item that came through the stream
+    was added to a member variable that held onto the sum, one at a time.
+
+    However, we can also apply an operation to all items emitted "at once". Lets sum all the items
+    emitted by the "numbers" observable.
+    */
     @Test
     public void composableAddition() {
         mReceived = 0;
