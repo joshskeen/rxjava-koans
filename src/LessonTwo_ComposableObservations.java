@@ -32,7 +32,7 @@ public class LessonTwo_ComposableObservations {
                 .doOnNext(integer -> mValueB += integer)
                 .subscribe();
         assertThat(mValueA).isEqualTo("123456");
-        assertThat(mValueB).isEqualTo("246");
+        assertThat(mValueB).isEqualTo("");
     }
 
     @Test
