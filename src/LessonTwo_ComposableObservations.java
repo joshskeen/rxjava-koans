@@ -69,10 +69,17 @@ public class LessonTwo_ComposableObservations {
         assertThat(mStringA).isEqualTo("JoshBillJoe");
     }
 
+    /* Instead of just using items as input to functions (for example summing them), we can transform the items themselves.
+     We'll use the map() function for this. Lets take some text and map it to all lowercase. The key to making this work is to
+     return the same variable that comes into the function.
+     */
     @Test
     public void convertingEvents() {
         mStringA = "";
-        Observable.just("wE", "hOpe", "yOU", "aRe", "eNjOyInG", "thIS").map(s -> _____).subscribe(s -> mStringA += s + " ");
+        Observable.just("wE", "hOpe", "yOU", "aRe", "eNjOyInG", "thIS")
+                .map(s -> _____)
+                .subscribe(s -> mStringA += s + " ");
+
         assertThat(mStringA).isEqualTo("we hope you are enjoying this ");
     }
 
