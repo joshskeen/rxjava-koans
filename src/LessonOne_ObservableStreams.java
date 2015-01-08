@@ -9,7 +9,7 @@ import static org.fest.assertions.Assertions.assertThat;
 public class LessonOne_ObservableStreams {
 
     private Object mReceived;
-    private Integer mReceivedInteger;
+    private Integer mSum;
     private String mStatus;
     private Object _____;
     private int ____;
@@ -26,20 +26,28 @@ public class LessonOne_ObservableStreams {
         assertThat(mReceived).isEqualTo(_____);
     }
 
+    /*
+    Observables are ultimately about handling "streams" of items (i.e. more than one item).
+    Here we have two items that we are inserting into the pipeline.
+    Lets update our member variable for each item emitted. Which item do you think will be last?
+     */
     @Test
     public void theLastEvent() {
-        mReceived = 0;
+        mReceived = "";
         Observable.just("Foo", "Bar").subscribe(string -> mReceived = string);
 
         assertThat(mReceived).isEqualTo(_____);
     }
 
+    /*
+    Each item that enters the pipeline is handled by our observable pipeline, not just the last one.
+    Lets keep track of each item by adding them all up.
+    */
     @Test
     public void everyThingCounts() {
-        mReceivedInteger = 0;
-        Observable.just(3, 4).subscribe(integer -> mReceivedInteger += integer);
-
-        assertThat(mReceivedInteger).isEqualTo((Integer) _____);
+        mSum = 0;
+        Observable.just(3, 4).subscribe(integer -> mSum += integer);
+        assertThat(mSum).isEqualTo((Integer) ____);
     }
 
     @Test
@@ -55,13 +63,20 @@ public class LessonOne_ObservableStreams {
         assertThat(mStatus).isEqualTo("4=Party,3=Party,2=Party,1=Study Like Mad");
     }
 
+    /*
+    So far we've created observables and immediately "subscribed" to them. Its only when we subscribe to an
+    observable that it is fully wired up. This observable is now considered "hot". Until then it is "cold"
+    and doesn't really do anything.
+
+    We can create an observable and hold onto it and subscribe later. Lets try that here.
+     */
     @Test
     public void nothingListensUntilYouSubscribe() {
-        mReceivedInteger = 0;
-        Observable<Integer> numbers = Observable.range(1, 10).doOnNext(integer -> mReceivedInteger += integer);
-        assertThat(mReceivedInteger).isEqualTo(0);
+        mSum = 0;
+        Observable<Integer> numbers = Observable.range(1, 10).doOnNext(integer -> mSum += integer);
+        assertThat(mSum).isEqualTo(0);
 //        numbers.____();
-        assertThat(mReceivedInteger).isEqualTo(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10);
+        assertThat(mSum).isEqualTo(1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10);
     }
 
 }
