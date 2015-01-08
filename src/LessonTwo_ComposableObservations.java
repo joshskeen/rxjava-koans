@@ -50,13 +50,23 @@ public class LessonTwo_ComposableObservations {
         assertThat(mStringB).isEqualTo("____");
     }
 
+    /*
+    In the previous test our second doOnNext() method was really doing two things: it was checking for even numbers and concatenating a string.
+    The beauty of functional programming is that we can break each little bit of functionality into its own pipe in the pipeline.
+
+     So far we've added functionality to our pipeline in two places: subscribe() and doOnNext(). Both of these are nice and generic but
+     RXJava provides us with a plethora of specialty methods. Lets use one of those methods, called filter() to check for Strings of a certain length.
+     */
     @Test
     public void weWroteThis() {
         mStringA = "";
-        int ____ = 0;
-        StringObservable.join(Observable.just("Josh", "Bill", "Joe", "Fredric")
-                .filter(s -> s.length() <= ____), ",").subscribe(s -> mStringA = s);
-        assertThat(mStringA).isEqualTo("Josh,Bill,Joe");
+
+        Observable.just("Josh", "Bill", "Joe", "Fredric")
+                .filter(s -> s.length() <= ____)
+                .doOnNext(s -> mStringA = mStringA + s )
+                .subscribe();
+
+        assertThat(mStringA).isEqualTo("JoshBillJoe");
     }
 
     @Test
