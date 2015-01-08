@@ -48,10 +48,10 @@ public class LessonOne_ObservableStreams {
     /*
     So far we've created observables and immediately "subscribed" to them. Its only when we subscribe to an
     observable that it is fully wired up. This observable is now considered "hot". Until then it is "cold"
-    and doesn't really do anything.
+    and doesn't really do anything, it won't emit any items.
 
-    So if we are going to build an observable and not subscribe to it until later on, how can we add the all of the functionality as before?
-    Do we have to put all the work inside subscribe() ? No we don't!
+    So if we are going to build an observable and not subscribe to it until later on, how can we include the all
+    of the functionality as before? Do we have to put all the work inside subscribe() ? No we don't!
 
     If we peek at the Observer interface we see it has three methods:
 
@@ -64,7 +64,7 @@ public class LessonOne_ObservableStreams {
         }
 
     When we subscribe to an Observable, the code we put inside subscribe() is getting handed off to the Observer's onNext() method.
-    However, we can manually pass code right to onNext ourself with Observable.doOnNext()
+    However, we can manually pass code right to onNext() ourselves with Observable.doOnNext()
 
     Lets setup an Observable with all the functionality we need to sum a range of Integers. Then lets subscribe to it later on.
      */
