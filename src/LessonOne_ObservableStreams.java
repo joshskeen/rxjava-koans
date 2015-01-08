@@ -23,9 +23,9 @@ public class LessonOne_ObservableStreams {
     }
 
     /*
-    Observables are ultimately about handling "streams" of items (i.e. more than one item).
-    Here we have two items that we are inserting into the pipeline.
-    Lets update our member variable for each item emitted. Which item do you think will be last?
+    Observables are ultimately about handling "streams" of items (i.e. more than one item). Each item is called an "event".
+    Here we have two events that we are inserting into the pipeline.
+    Lets update our member variable for each event. Which event do you think will be last?
      */
     @Test
     public void theLastEvent() {
@@ -35,8 +35,8 @@ public class LessonOne_ObservableStreams {
     }
 
     /*
-    Each item that enters the pipeline is handled by our observable pipeline, not just the last one.
-    Lets keep track of each item by adding them all up.
+    Each event that enters the pipeline is handled by our observable pipeline, not just the last one.
+    Lets keep track of each event by adding them all up.
     */
     @Test
     public void everyThingCounts() {
@@ -48,7 +48,7 @@ public class LessonOne_ObservableStreams {
     /*
     So far we've created observables and immediately "subscribed" to them. Its only when we subscribe to an
     observable that it is fully wired up. This observable is now considered "hot". Until then it is "cold"
-    and doesn't really do anything, it won't emit any items.
+    and doesn't really do anything, it won't emit any events.
 
     So if we are going to build an observable and not subscribe to it until later on, how can we include the all
     of the functionality as before? Do we have to put all the work inside subscribe() ? No we don't!
