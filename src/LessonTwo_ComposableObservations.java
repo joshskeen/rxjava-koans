@@ -1,7 +1,6 @@
 import org.junit.Test;
 import rx.Observable;
 import rx.observables.MathObservable;
-import rx.observables.StringObservable;
 
 import static org.fest.assertions.Assertions.assertThat;
 
@@ -11,8 +10,11 @@ public class LessonTwo_ComposableObservations {
     public String mStringA;
     public String mStringB;
     public Boolean mBooleanValue;
+
+    // You don't have to mess with these. They are for making tests compile.
     private Object _____;
     private int ____;
+    //
 
     /*
     So far, each of our observables only did one thing; they only had one bit of code inside either subscribe() or doOnNext().
@@ -26,7 +28,8 @@ public class LessonTwo_ComposableObservations {
     public void composableObservables() {
         mSum = 0;
         Observable<Integer> numbers = Observable.just(10, 100, ____);
-        MathObservable.sumInteger(numbers).subscribe(integer -> mSum = integer);
+        MathObservable.sumInteger(numbers)
+                .subscribe(integer -> mSum = integer);
         assertThat(mSum).isEqualTo(1110);
     }
 
@@ -63,7 +66,7 @@ public class LessonTwo_ComposableObservations {
 
         Observable.just("Josh", "Bill", "Joe", "Fredric")
                 .filter(s -> s.length() <= ____)
-                .doOnNext(s -> mStringA = mStringA + s )
+                .doOnNext(s -> mStringA = mStringA + s)
                 .subscribe();
 
         assertThat(mStringA).isEqualTo("JoshBillJoe");
@@ -83,15 +86,6 @@ public class LessonTwo_ComposableObservations {
         assertThat(mStringA).isEqualTo("we hope you are enjoying this ");
     }
 
-    @Test
-    public void creatingAMoreRelevantEventStream() {
-        mStringA = "";
-        final int windowTopX = 50;
-        Observable.just(100, 200, 150).map(integer -> integer - ____).subscribe(integer -> mStringA += integer + ", ");
-        assertThat(mStringA).isEqualTo("50, 150, 100, ");
-    }
-
-
     /*  So far we have performed operations on each item coming through the pipe. However, we can also perform operations
     on all the items together that have so far come through the pipeline. Lets make sure that every time we get a new integer
     we check that all integers so far are even numbers.
@@ -104,12 +98,16 @@ public class LessonTwo_ComposableObservations {
         assertThat(_____).isEqualTo(____);
     }
 
+    /* OK time for a challenge!
+    We've given you a starting stream and an assertion that needs to pass. Take what you learned in this lesson to make it work.
+    You're free to use some combination of chained or nested functionalities.
+    */
     @Test
-    public void compositionMeansTheSumIsGreaterThanTheParts() {
-        int ____ = 0;
-        MathObservable.sumInteger(Observable.range(1, 10).filter(integer -> integer > ____))
-                .subscribe(integer -> assertThat(integer).isEqualTo(19));
+    public void challenge_compositionMeansTheSumIsGreaterThanTheParts() {
+        Observable.range(1, 10);
+
+        // ___
+
+        assertThat(mSum).isEqualTo(19);
     }
-
-
 }
