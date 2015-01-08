@@ -14,6 +14,7 @@ ___
 1. Install java 8. 
 2. download intellij
 3. checkout the project
+4. open intellij. Select "Import Project", "From existing Sources", and click ok.
 4. run the test suite
 5. the test suite will fail
 6. make each test pass!

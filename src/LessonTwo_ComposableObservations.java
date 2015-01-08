@@ -49,6 +49,7 @@ public class LessonTwo_ComposableObservations {
                     }
                 })
                 .subscribe();
+
         assertThat(mStringA).isEqualTo("____");
         assertThat(mStringB).isEqualTo("____");
     }
