@@ -91,11 +91,17 @@ public class LessonTwo_ComposableObservations {
         assertThat(mStringA).isEqualTo("50, 150, 100, ");
     }
 
+
+    /*  So far we have performed operations on each item coming through the pipe. However, we can also perform operations
+    on all the items together that have so far come through the pipeline. Lets make sure that every time we get a new integer
+    we check that all integers so far are even numbers.
+    */
     @Test
     public void checkingEverything() {
-        mSum = 0;
-        Observable.just(2, 4, 6, 8).all(integer -> integer % 2 == 0).subscribe(aBoolean -> mBooleanValue = aBoolean);
-        assertThat(_____).isEqualTo(true);
+        Observable.just(2, 4, 6, 8)
+                .all(integer -> integer % 2 == 0)
+                .subscribe(aBoolean -> mBooleanValue = aBoolean);
+        assertThat(_____).isEqualTo(____);
     }
 
     @Test
