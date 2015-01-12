@@ -21,7 +21,9 @@ public class LessonTwo_ComposableObservations {
     /*
     So far, each of our observables only did one thing; they only had one bit of code inside either subscribe() or doOnNext().
     Each of these things was an "action". An action is the bit of code to be performed. We can see an action more clearly if we expand the lambdas
-    we've been using so far. Lets add up some numbers. See that our Action1 is part doing the work.
+    we've been using so far.
+
+    Lets add up some numbers. See that our Action1 is the part doing the work.
      */
     @Test
     public void actionJackson() {
@@ -123,7 +125,7 @@ public class LessonTwo_ComposableObservations {
 
     /* OK time for a challenge!
     We've given you a starting stream and an assertion that needs to pass. Take what you learned in this lesson to make it work.
-    You're free to use some combination of chained or nested functionalities.
+    You're free to use some combination of chained (i.e. fluent) or nested functionalities.
     */
     @Test
     public void challenge_compositionMeansTheSumIsGreaterThanTheParts() {
