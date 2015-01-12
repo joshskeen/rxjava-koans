@@ -97,9 +97,10 @@ public class LessonTwo_ComposableObservations {
         assertThat(mStringA).isEqualTo("JoshBillJoe");
     }
 
-    /* Instead of just using events as input to actions (for example summing them), we can transform the events themselves.
-     We'll use the map() function for this. Lets take some text and map it to all lowercase. The key to making this work is to
-     return the same variable that comes into the action.
+    /*
+    Instead of just using events as input to actions (for example summing them), we can transform the events themselves.
+    We'll use the map() function for this. Lets take some text and map it to all lowercase. The key to making this work is to
+    return the same variable that comes into the action.
      */
     @Test
     public void convertingEvents() {
@@ -111,7 +112,8 @@ public class LessonTwo_ComposableObservations {
         assertThat(mStringA).isEqualTo("we hope you are enjoying this ");
     }
 
-    /*  So far we have performed operations on each event coming through the pipe. However, we can also perform operations
+    /*
+    So far we have performed operations on each event coming through the pipe. However, we can also perform operations
     on all the events together that have so far come through the pipeline. Lets make sure that every time we get a new integer
     we check that all integers so far are even numbers.
     */
