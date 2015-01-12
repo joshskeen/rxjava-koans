@@ -16,11 +16,21 @@ public class LessonFour_AdvancedStreams {
     public String _____;
     public Integer _______;
 
+    /*
+    So far everything has been pretty linear. Our pipelines all took the form:
+    "do this, then do this, then do this, then end". In reality we can combine pipelines. We can take two streams
+    and turn them into a single stream.
+
+    Now its worth nothing this is different from what we did when we nested Observables. In that case we always had one stream.
+    Lets take a stream of integers and a stream of strings and join them.
+    */
     @Test
     public void merging() {
         Observable<Object> you = Observable.just(1, 2, 3);
         Observable<String> me = Observable.just("A", "B", "C");
-        you.mergeWith(me).subscribe(string -> mReceived += string + " ");
+        you.mergeWith(me)
+                .subscribe(string -> mReceived += string + " ");
+
         assertThat(mReceived).isEqualTo(_____);
     }
 
