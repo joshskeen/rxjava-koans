@@ -4,17 +4,16 @@ import rx.functions.Func1;
 import rx.observables.GroupedObservable;
 import rx.observables.MathObservable;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.fest.assertions.Assertions.assertThat;
 
 public class LessonFour_AdvancedStreams {
 
     public String mReceived = "";
-    public Map<Integer, String> mStrings = new HashMap<>();
     public String _____;
     public Integer _______;
+
+    private String mEvenNums = "";
+    private String mOddNums = "";
 
     /*
     So far everything has been pretty linear. Our pipelines all took the form:
@@ -34,18 +33,33 @@ public class LessonFour_AdvancedStreams {
         assertThat(mReceived).isEqualTo(_____);
     }
 
+    /*
+    We can also split up a single stream into two streams. We are going to to use the groupBy() action.
+    This action can be a little tricky because it emits an observable of observables. So we need to subscribe to the
+    "parent" observable and each emitted observable.
 
+    We encourage you to read more from the wiki: http://reactivex.io/documentation/operators/groupby.html
+
+    Lets split up a single stream of integers into two streams: even and odd numbers.
+    */
     @Test
     public void splittingUp() {
-        mStrings.put(0, "");
-        mStrings.put(1, "");
-        Observable.range(1, 9).groupBy(integer -> _______)
-                .subscribe(group -> group.subscribe(integer -> {
-                    String s = mStrings.get(group.getKey()) + "" + integer;
-                    mStrings.put(group.getKey(), s);
+        Observable.range(1, 9)
+                .groupBy(integer -> {
+                    // ____
+                    return _____;
+                })
+                .subscribe(subset -> subset.subscribe(integer -> {
+                    String key = subset.getKey();
+                    if (key == "even") {
+                        mEvenNums = mEvenNums + integer;
+                    } else if (key == "odd") {
+                        mOddNums = mOddNums + integer;
+                    }
                 }));
-        assertThat(mStrings.get(0)).isEqualTo("2468");
-        assertThat(mStrings.get(1)).isEqualTo("13579");
+
+        assertThat(mEvenNums).isEqualTo("2468");
+        assertThat(mOddNums).isEqualTo("13579");
     }
 
     @Test
