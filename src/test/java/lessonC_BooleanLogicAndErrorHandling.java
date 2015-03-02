@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 import rx.Observable;
 import rx.functions.Func1;
+import rx.functions.Func3;
 import rx.observables.MathObservable;
 import rx.observers.TestSubscriber;
 import util.LessonResources;
@@ -29,9 +30,12 @@ public class lessonC_BooleanLogicAndErrorHandling {
     private String _____;
     private int ____;
     private Object ______ = "";
+    private Boolean _________;
     private TestSubscriber<Object> mSubscriber;
     private List<Observable<Observable>> mField;
+
     Func1<ElevatorPassenger, Boolean> _______ = elevatorPassenger -> false;
+    Observable<Boolean> __________;
 
     @Before
     public void setup() {
@@ -109,7 +113,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
     /**
      * Next on our tour, we will see .amb(). Stands for Ambiguous - a somewhat mysterious name (traces its historical roots to the 60')!
      * What it does is it moves forward with the first of a set of Observables to emit an event.
-     *
+     * <p>
      * Useful in this situation below : 3 servers with the same data, but different response times.
      * Give us the fastest!
      */
@@ -208,6 +212,31 @@ public class lessonC_BooleanLogicAndErrorHandling {
         }).repeat(100);
         networkRequestObservable.retry(____).subscribe(mSubscriber);
         assertThat(mSubscriber.getOnNextEvents().get(0)).isEqualTo("extremely important data");
+    }
+
+
+    /**
+     * In this experiment, we will use RxJava to pick a lock. Our lock has three tumblers. We will need them all to be up to unlock the lock!
+     */
+
+    @Test
+    public void combineLatestTakesTheLastEventsOfASetOfObservablesAndCombinesThem() {
+
+        Observable<Boolean> tumbler1Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);
+        Observable<Boolean> tumbler2Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);
+        Observable<Boolean> tumbler3Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);
+
+        Func3<Boolean, Boolean, Boolean, Boolean> combineTumblerStatesFunction = (tumblerOneUp, tumblerTwoUp, tumblerThreeUp) -> {
+            Boolean allTumblersUnlocked = _________ && _________ && _________;
+            return allTumblersUnlocked;
+        };
+
+        Observable<Boolean> lockIsPickedObservable = Observable.combineLatest(__________, __________, __________, combineTumblerStatesFunction).takeUntil(unlocked -> unlocked == true).last();
+        lockIsPickedObservable.subscribe(mSubscriber);
+        mSubscriber.awaitTerminalEvent();
+        List<Object> onNextEvents = mSubscriber.getOnNextEvents();
+        assertThat(onNextEvents.size()).isEqualTo(1);
+        assertThat(onNextEvents.get(0)).isEqualTo(true);
     }
 
 }

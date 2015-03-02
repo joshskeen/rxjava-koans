@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import rx.Observable;
 import rx.functions.Func1;
+import rx.functions.Func3;
 import rx.observables.MathObservable;
 import rx.observers.TestSubscriber;
 import util.LessonResources;
@@ -213,4 +214,28 @@ public class lessonC_Solutions {
         assertThat(mSubscriber.getOnNextEvents().get(0)).isEqualTo("extremely important data");
     }
 
+
+    /**
+     * In this experiment, we will use RxJava to pick a lock. Our lock has three tumblers. We will need them all to be up to unlock the lock!
+     */
+
+    @Test
+    public void combineLatestTakesTheLastEventsOfASetOfObservablesAndCombinesThem() {
+
+        Observable<Boolean> tumbler1Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);
+        Observable<Boolean> tumbler2Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);
+        Observable<Boolean> tumbler3Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);
+
+        Func3<Boolean, Boolean, Boolean, Boolean> combineTumblerStatesFunction = (tumblerOneUp, tumblerTwoUp, tumblerThreeUp) -> {
+            Boolean allTumblersUnlocked = tumblerOneUp && tumblerTwoUp && tumblerThreeUp;
+            return allTumblersUnlocked;
+        };
+
+        Observable<Boolean> lockIsPickedObservable = Observable.combineLatest(tumbler1Observable, tumbler2Observable, tumbler3Observable, combineTumblerStatesFunction).takeUntil(unlocked -> unlocked == true).last();
+        lockIsPickedObservable.subscribe(mSubscriber);
+        mSubscriber.awaitTerminalEvent();
+        List<Object> onNextEvents = mSubscriber.getOnNextEvents();
+        assertThat(onNextEvents.size()).isEqualTo(1);
+        assertThat(onNextEvents.get(0)).isEqualTo(true);
+    }
 }
