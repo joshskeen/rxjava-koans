@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'application'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    test {
+        java {
+            srcDir 'src/test/java'
+        }
+    }
+}
+
+dependencies {
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.assertj:assertj-core:1.7.1'
+    testCompile 'io.reactivex:rxjava:1.0.7'
+    testCompile 'io.reactivex:rxjava-math:1.0.0'
+    testCompile 'io.reactivex:rxjava-string:0.22.0'
+}
+
+test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2.1'
+}
