@@ -118,7 +118,10 @@ public class lessonA_CreatingObservableStreams {
         favoriteFoodsObservable.subscribe(subscriber);
         assertThat(subscriber.getOnNextEvents()).hasSize(____);
         assertThat(subscriber.getOnNextEvents()).contains(_____);
+        // Uncomment the following line and make it pass!
+        //assertThat(subscriber.getOnNextEvents()).containsAll(_____);
 
+        subscriber = new TestSubscriber<>();
         Observable.just(sandwichIngredients).subscribe(subscriber);
         assertThat(subscriber.getOnNextEvents()).hasSize(____);
         assertThat(subscriber.getOnNextEvents()).contains(_____);
