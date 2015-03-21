@@ -2,9 +2,8 @@
 /build
 /out
 /local.properties
-/.idea/workspace.xml
-/.idea/libraries
-/.idea/tasks.xml
+/.idea
+*.iml
 .DS_Store
 *.iws
 *~
