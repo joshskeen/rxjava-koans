@@ -8,7 +8,7 @@ The koans are broken out into subjects by file. Each koan file builds up your kn
 Some koans simply need to have the correct answer substituted for an incorrect one. Some, however, require you to supply your own answer. If you see the method __ (a double underscore) listed, it is a hint to you to supply your own code in order to make it work correctly. Your task is to make each test pass!
 
 
-### How to run the project
+### Instructions for how to run the project
 
 1. Java 8 is needed for the exercise. [Download from here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if you don't have it already. 
 2. [download IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
