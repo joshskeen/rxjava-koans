@@ -162,14 +162,6 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
         assertThat(testSubscriber.getOnNextEvents().get(0)).isEqualTo(____);
     }
 
-    @Test
-    public void stoogeTest() {
-        List<String> stooges = Arrays.asList("larry", "moe", "curly");
-        Observable.just(stooges).subscribe(strings -> {
-            System.out.println(strings);
-        });
-    }
-
     /**
      * .repeat() creates an Observable that emits a particular item or sequence of items repeatedly
      */
