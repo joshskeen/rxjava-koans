@@ -23,7 +23,6 @@ public class lessonA_Solutions {
     private int mCount3;
 
 
-    @Before
     public void setup() {
         mSubscriber = new TestSubscriber<>();
     }
@@ -37,7 +36,6 @@ public class lessonA_Solutions {
      * For our RxJava tests, we will be working with an object called TestSubscriber which the framework includes.
      * It gives us an easy way to check what was emitted on the pipeline.
      */
-    @Test
     public void anObservableStreamOfEventsEmitsEachItemInOrder() {
         Observable<String> pipelineOfData = Observable.just("Foo", "Bar");
         pipelineOfData.subscribe(mSubscriber);
@@ -67,7 +65,6 @@ public class lessonA_Solutions {
      * An Observable calls this method after it has called onNext for the final time,
      * if it has not encountered any errors.
      */
-    @Test
     public void anObservableStreamEmitsThreeMajorEventTypes() {
         Observable<Integer> pipelineOfData = Observable.just(1, 2, 3, 4, 5);
         pipelineOfData.doOnNext(integer -> mCount1++)
@@ -85,7 +82,6 @@ public class lessonA_Solutions {
      * and converts them into an Observable which emits those objects. (http://reactivex.io/RxJava/javadoc/rx/Observable.html#just(T))
      * Let's build our own this time.
      */
-    @Test
     public void justCreatesAnObservableEmittingItsArguments() {
 
         String stoogeOne = "Larry";
@@ -113,7 +109,6 @@ public class lessonA_Solutions {
      * with Collections. When just is given a collection, it converts it into an Observable that emits each item from the list.
      * Let's understand how the two are different more clearly.
      */
-    @Test
     public void fromCreatesAnObservableThatEmitsEachElementFromAnIterable() {
         List<String> sandwichIngredients = Arrays.asList("bread (one)", "bread (two)", "cheese", "mayo", "turkey", "lettuce", "pickles", "jalapenos", "Sriracha sauce");
 
@@ -152,7 +147,6 @@ public class lessonA_Solutions {
      * <p>
      * Lets setup an Observable with all the functionality we need to sum a range of Integers. Then lets subscribe to it later on.
      */
-    @Test
     public void nothingListensUntilYouSubscribe() {
         mSum = 0;
         /**

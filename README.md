@@ -13,11 +13,15 @@ Some koans simply need to have the correct answer substituted for an incorrect o
 1. Java 8 is needed for the exercise. [Download from here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) if you don't have it already. 
 2. [download IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
 3. `git clone git@github.com:mutexkid/rxjava-koans.git`
-4. Open the project in IntelliJ. If libraries are missing, follow the [instructions here].(https://www.jetbrains.com/idea/help/synchronizing-changes-in-gradle-project-and-intellij-idea-project.html)
-4. run the test suite by right clicking on `src/test/java` and selecting `Run 'All Tests'`.
+4. In Intellij, select File > Import Project... and select the cloned directory
+5. In the Import Project dialog, select Import Project from External Model, choose Gradle and click next.
+6. On the next screen, make sure "use default gradle wrapper" is selected and click Finish
+7. Last, under File > Project Structure, set Project SDK: to Java 1.8 and click ok!
+
+Run the test suite by right clicking on `src/test/java` and selecting `Run 'All Tests'`.
 5. The test suite will fail - make each test pass!
 
-For more information about Functional Reactive Programming with RxJava, [check out my article on the topic](http://www.bignerdranch.com/blog/what-is-functional-reactive-programming/). 
+For more information about Functional Reactive Programming with RxJava, [check out my article on the topic](http://www.bignerdranch.com/blog/what-is-functional-reactive-programming/).
 
 
 This project began its life as a direct port of https://github.com/mattpodwysocki/RxJSKoans. It aspires to add more rx-java specific challenges. Pull requests and feedback accepted!

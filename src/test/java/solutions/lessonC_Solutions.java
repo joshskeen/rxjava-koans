@@ -37,7 +37,6 @@ public class lessonC_Solutions {
     Func1<ElevatorPassenger, Boolean> _______ = elevatorPassenger -> false;
     private Object mThrowable;
 
-    @Before
     public void setup() {
         mSubscriber = new TestSubscriber<>();
     }
@@ -51,7 +50,6 @@ public class lessonC_Solutions {
      * Our elevator has a maximum capacity. If we overload it, our passengers may be injured or even die!
      * We will use takeWhile to ensure no elevator is overloaded.
      */
-    @Test
     public void takeWhileEvaluatesAnExpressionAndEmitsEventsUntilItReturnsFalse() {
 
         LessonResources.Elevator elevator = new LessonResources.Elevator();
@@ -115,7 +113,6 @@ public class lessonC_Solutions {
      * Give us the fastest!
      */
 
-    @Test
     public void AmbStandsForAmbiguousAndTakesTheFirstOfTwoObservablesToEmitData() {
 
         Integer randomInt = new Random().nextInt(100);
@@ -154,7 +151,6 @@ public class lessonC_Solutions {
      * which then emits true or false.
      */
 
-    @Test
     public void checkingEverything() {
         Observable.just(2, 4, 6, 8, 9)
                 .all(integer -> integer % 2 == 0)
@@ -167,7 +163,6 @@ public class lessonC_Solutions {
      * Given the range below and what we've learned of rxjava so far, how can we produce an mSum equal to 19??
      * Hint: There are a couple ways you could do this, but the most readable will involve 2 operations.
      */
-    @Test
     public void challenge_compositionMeansTheSumIsGreaterThanTheParts() {
         //one way to do it! another might be using filter & reduce
         Observable<Integer> filter = Observable.range(1, 10).filter(integer -> integer >= 9);
@@ -182,7 +177,6 @@ public class lessonC_Solutions {
      * Our first means to do this is with the .onError() event we can implement in our pipeline. This will receive whatever
      * exception was emitted, so that we can log about it, take action, or notify the user for example.
      */
-    @Test
     public void onErrorIsCalledWhenErrorsOccur() {
         List<String> arrayOne = new ArrayList<>();
         List<String> arrayTwo = new ArrayList<>();
@@ -202,7 +196,6 @@ public class lessonC_Solutions {
      * .retry(long numberOfAttempts) can keep resubscribing to an Observable until a different non-error result occurs.
      * http://reactivex.io/documentation/operators/retry.html
      */
-    @Test
     public void retryCanAttemptAnOperationWhichFailsMultipleTimesInTheHopesThatItMaySucceeed() {
         Observable<String> networkRequestObservable = Observable.just(new ComcastNetworkAdapter()).map(new Func1<ComcastNetworkAdapter, String>() {
             @Override
@@ -219,7 +212,6 @@ public class lessonC_Solutions {
      * In this experiment, we will use RxJava to pick a lock. Our lock has three tumblers. We will need them all to be up to unlock the lock!
      */
 
-    @Test
     public void combineLatestTakesTheLastEventsOfASetOfObservablesAndCombinesThem() {
 
         Observable<Boolean> tumbler1Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);

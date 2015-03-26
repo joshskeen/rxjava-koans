@@ -1,3 +1,5 @@
+package solutions;
+
 import org.junit.Before;
 import org.junit.Test;
 import rx.Observable;
@@ -21,7 +23,6 @@ public class lessonB_Solutions {
     private TestSubscriber<Object> mSubscriber;
     private List<Observable<Observable>> mField;
 
-    @Before
     public void setup() {
         mSubscriber = new TestSubscriber<>();
     }
@@ -29,7 +30,6 @@ public class lessonB_Solutions {
     /**
      * the Map function transforms the items emitted by an Observable by applying a function to each, changing the content.
      */
-    @Test
     public void mapAppliesAFunctionToEachItemAndEmitsDataOnTheOtherSide() {
         Observable.from(Arrays.asList("kewl", "leet", "speak"))
                 .map(word -> word.replace("e", "3"))
@@ -48,7 +48,6 @@ public class lessonB_Solutions {
      * We still need to eat though. Our goal - check the available food options and get a filtered list of things under 5$.
      */
 
-    @Test
     public void flatMapUnwrapsOneLevelOfNestingInAnObservableStream() {
         /**
          * The First Food cart's offerings:
@@ -139,7 +138,6 @@ public class lessonB_Solutions {
     /**
      * Reduce is helpful for aggregating a set of data and emitting a final result
      */
-    @Test
     public void theReduceOperatorAccumulatesValuesAndEmitsTheResult() {
 
         TestSubscriber<Integer> testSubscriber = new TestSubscriber<>();
@@ -163,7 +161,6 @@ public class lessonB_Solutions {
     /**
      * .repeat() creates an Observable that emits a particular item or sequence of items repeatedly
      */
-    @Test
     public void repeatOperatorRepeatsThePreviousOperationANumberOfTimes() {
         String weapon = "A Boomerang made of Pure Gold";
         TestSubscriber<Object> subscriber = new TestSubscriber<>();
@@ -186,7 +183,6 @@ public class lessonB_Solutions {
      * In this example we have one Observable and we perform two actions on the data it emits.
      * Lets build two Strings by concatenating some integers.
      */
-    @Test
     public void composableFunctions() {
         mStringA = "";
         mStringB = "";
@@ -207,7 +203,6 @@ public class lessonB_Solutions {
      * We'll use the map() function for this. Lets take some text and map it to all lowercase. The key to making this work is to
      * return the same variable that comes into the action.
      */
-    @Test
     public void convertingEvents() {
         mStringA = "";
         Observable.just("wE", "hOpe", "yOU", "aRe", "eNjOyInG", "thIS")

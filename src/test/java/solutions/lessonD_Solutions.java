@@ -25,7 +25,6 @@ public class lessonD_Solutions {
     Now its worth nothing this is different from what we did when we nested Observables. In that case we always had one stream.
     Lets take a stream of integers and a stream of strings and join them.
     */
-    @Test
     public void merging() {
         Observable<Object> you = Observable.just(1, 2, 3);
         Observable<String> me = Observable.just("A", "B", "C");
@@ -44,7 +43,6 @@ public class lessonD_Solutions {
 
     Lets split up a single stream of integers into two streams: even and odd numbers.
     */
-    @Test
     public void splittingUp() {
         Observable.range(1, 9)
                 .groupBy(integer -> {
@@ -72,7 +70,6 @@ public class lessonD_Solutions {
     Also see that we need to subscribe first to the "parent" observable but that the pipeline still cold until we
     subscribe to each subset observable. Don't forget to do that.
      */
-    @Test
     public void challenge_needToSubscribeImmediatelyWhenSplitting() {
         final double[] averages = {0, 0};
         Observable<Integer> numbers = Observable.just(22, 22, 99, 22, 101, 22);
