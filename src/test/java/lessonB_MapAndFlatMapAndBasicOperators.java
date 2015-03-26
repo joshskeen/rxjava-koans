@@ -18,6 +18,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
     private Object ______ = "";
     public String mStringA;
     public String mStringB;
+    private String mStringC;
     private TestSubscriber<Object> mSubscriber;
     private List<Observable<Observable>> mField;
 
@@ -161,6 +162,13 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
         assertThat(testSubscriber.getOnNextEvents().get(0)).isEqualTo(____);
     }
 
+    @Test
+    public void stoogeTest() {
+        List<String> stooges = Arrays.asList("larry", "moe", "curly");
+        Observable.just(stooges).subscribe(strings -> {
+            System.out.println(strings);
+        });
+    }
 
     /**
      * .repeat() creates an Observable that emits a particular item or sequence of items repeatedly
@@ -193,6 +201,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
     public void composableFunctions() {
         mStringA = "";
         mStringB = "";
+        mStringC = "";
         Observable.range(1, 6)
                 .doOnNext(integer -> mStringA += integer)
                 .doOnNext(integer -> {
@@ -200,9 +209,11 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
                         mStringB += integer;
                     }
                 })
-                .subscribe();
+                .doOnNext(integer -> mStringC += integer)
+                .subscribe(integer -> mStringC += integer);
         assertThat(mStringA).isEqualTo("____");
         assertThat(mStringB).isEqualTo("____");
+        assertThat(mStringC).isEqualTo("____");
     }
 
     /**
