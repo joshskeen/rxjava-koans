@@ -36,7 +36,7 @@ public class lessonA_CreatingObservableStreams {
      * It gives us an easy way to check what was emitted on the pipeline.
      */
     @Test
-    public void anObservableStreamOfEventsEmitsEachItemInOrder() {
+    public void _1_anObservableStreamOfEventsEmitsEachItemInOrder() {
         Observable<String> pipelineOfData = Observable.just("Foo", "Bar");
         pipelineOfData.subscribe(mSubscriber);
         List<Object> dataEmitted = mSubscriber.getOnNextEvents();
@@ -64,7 +64,7 @@ public class lessonA_CreatingObservableStreams {
      * if it has not encountered any errors.
      */
     @Test
-    public void anObservableStreamEmitsThreeMajorEventTypes() {
+    public void _2_anObservableStreamEmitsThreeMajorEventTypes() {
         Observable<Integer> pipelineOfData = Observable.just(1, 2, 3, 4, 5);
         pipelineOfData.doOnNext(integer -> mCount1++)
                 .doOnCompleted(() -> mCount2++)
@@ -83,7 +83,7 @@ public class lessonA_CreatingObservableStreams {
      * Let's build our own this time.
      */
     @Test
-    public void justCreatesAnObservableEmittingItsArguments() {
+    public void _3_justCreatesAnObservableEmittingItsArguments() {
 
         String stoogeOne = "Larry";
         String stoogeTwo = "Moe";
@@ -111,7 +111,7 @@ public class lessonA_CreatingObservableStreams {
      * Let's understand how the two are different more clearly.
      */
     @Test
-    public void fromCreatesAnObservableThatEmitsEachElementFromAnIterable() {
+    public void _4_fromCreatesAnObservableThatEmitsEachElementFromAnIterable() {
         List<String> sandwichIngredients = Arrays.asList("bread (one)", "bread (two)", "cheese", "mayo", "turkey", "lettuce", "pickles", "jalapenos", "Sriracha sauce");
         Observable<String> favoriteFoodsObservable = Observable.from(sandwichIngredients);
         TestSubscriber<Object> subscriber = new TestSubscriber<>();
@@ -151,7 +151,7 @@ public class lessonA_CreatingObservableStreams {
      * Lets setup an Observable with all the functionality we need to sum a range of Integers. Then lets subscribe to it later on.
      */
     @Test
-    public void nothingListensUntilYouSubscribe() {
+    public void _5_nothingListensUntilYouSubscribe() {
         mSum = 0;
         /**
          * Observable.range() creates a sequential list from a starting number of a particular size.
