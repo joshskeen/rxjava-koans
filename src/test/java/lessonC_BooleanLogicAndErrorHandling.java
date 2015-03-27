@@ -52,7 +52,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
      * We will use takeWhile to ensure no elevator is overloaded.
      */
     @Test
-    public void takeWhileEvaluatesAnExpressionAndEmitsEventsUntilItReturnsFalse() {
+    public void _1_takeWhileEvaluatesAnExpressionAndEmitsEventsUntilItReturnsFalse() {
 
         LessonResources.Elevator elevator = new LessonResources.Elevator();
 
@@ -119,7 +119,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
      */
 
     @Test
-    public void AmbStandsForAmbiguousAndTakesTheFirstOfTwoObservablesToEmitData() {
+    public void _2_AmbStandsForAmbiguousAndTakesTheFirstOfTwoObservablesToEmitData() {
 
         Integer randomInt = new Random().nextInt(100);
         Integer randomInt2 = new Random().nextInt(100);
@@ -154,7 +154,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
      */
 
     @Test
-    public void checkingEverything() {
+    public void _3_checkingEverything() {
         Observable.just(2, 4, 6, 8, 9)
                 .all(integer -> integer % 2 == 0)
                 .subscribe(aBoolean -> mBooleanValue = aBoolean);
@@ -167,7 +167,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
      * Hint: There are a couple ways you could do this, but the most readable will involve 2 operations.
      */
     @Test
-    public void challenge_compositionMeansTheSumIsGreaterThanTheParts() {
+    public void _4_challenge_compositionMeansTheSumIsGreaterThanTheParts() {
         mSum = 0;
         Observable<Integer> range = Observable.range(1, 10);
         //hmmmmmmmm.. how can we emit 1 value of 19 from the original range of numbers?
@@ -182,7 +182,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
      * exception was emitted, so that we can log about it, take action, or notify the user for example.
      */
     @Test
-    public void onErrorIsCalledWhenErrorsOccur() {
+    public void _5_onErrorIsCalledWhenErrorsOccur() {
         List<String> arrayOne = new ArrayList<>();
         List<String> arrayTwo = new ArrayList<>();
         List<String> arrayThree = null;
@@ -203,7 +203,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
      * http://reactivex.io/documentation/operators/retry.html
      */
     @Test
-    public void retryCanAttemptAnOperationWhichFailsMultipleTimesInTheHopesThatItMaySucceeed() {
+    public void _6_retryCanAttemptAnOperationWhichFailsMultipleTimesInTheHopesThatItMaySucceeed() {
         Observable<String> networkRequestObservable = Observable.just(new ComcastNetworkAdapter()).map(new Func1<ComcastNetworkAdapter, String>() {
             @Override
             public String call(ComcastNetworkAdapter networkAdapter) {
@@ -220,7 +220,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
      */
 
     @Test
-    public void combineLatestTakesTheLastEventsOfASetOfObservablesAndCombinesThem() {
+    public void _7_combineLatestTakesTheLastEventsOfASetOfObservablesAndCombinesThem() {
 
         Observable<Boolean> tumbler1Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);
         Observable<Boolean> tumbler2Observable = Observable.just(20).map(integer -> new Random().nextInt(20) > 15).delay(new Random().nextInt(20), TimeUnit.MILLISECONDS).repeat(1000);

@@ -31,7 +31,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
      * the Map function transforms the items emitted by an Observable by applying a function to each, changing the content.
      */
     @Test
-    public void mapAppliesAFunctionToEachItemAndEmitsDataOnTheOtherSide() {
+    public void _1_mapAppliesAFunctionToEachItemAndEmitsDataOnTheOtherSide() {
         Observable.from(Arrays.asList("kewl", "leet", "speak"))
                 .map(word -> word.replace("e", "3"))
                 .map(word -> word.replace("l", "1"))
@@ -50,7 +50,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
      */
 
     @Test
-    public void flatMapUnwrapsOneLevelOfNestingInAnObservableStream() {
+    public void _2_flatMapUnwrapsOneLevelOfNestingInAnObservableStream() {
 
         /**
          * The First Food cart's offerings:
@@ -142,7 +142,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
      * Reduce is helpful for aggregating a set of data and emitting a final result
      */
     @Test
-    public void theReduceOperatorAccumulatesValuesAndEmitsTheResult() {
+    public void _3_theReduceOperatorAccumulatesValuesAndEmitsTheResult() {
 
         TestSubscriber<Integer> testSubscriber = new TestSubscriber<>();
 
@@ -166,7 +166,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
      * .repeat() creates an Observable that emits a particular item or sequence of items repeatedly
      */
     @Test
-    public void repeatOperatorRepeatsThePreviousOperationANumberOfTimes() {
+    public void _4_repeatOperatorRepeatsThePreviousOperationANumberOfTimes() {
         String weapon = "A Boomerang made of Pure Gold";
         TestSubscriber<Object> subscriber = new TestSubscriber<>();
 
@@ -190,7 +190,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
      * Lets build two Strings by concatenating some integers.
      */
     @Test
-    public void composableFunctions() {
+    public void _5_composableFunctions() {
         mStringA = "";
         mStringB = "";
         mStringC = "";
@@ -214,7 +214,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
      * return the same variable that comes into the action.
      */
     @Test
-    public void convertingEvents() {
+    public void _6_convertingEvents() {
         mStringA = "";
         Observable.just("wE", "hOpe", "yOU", "aRe", "eNjOyInG", "thIS")
                 .map(s -> _____)
