@@ -157,7 +157,7 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
          * http://reactivex.io/documentation/operators/reduce.html
          */
         elevatorPassengersObservable.reduce(0, (accumulatedWeight, elevatorPassenger) ->
-                elevatorPassenger.mWeightInPounds += accumulatedWeight)
+                elevatorPassenger.mWeightInPounds + accumulatedWeight)
                 .subscribe(testSubscriber);
         assertThat(testSubscriber.getOnNextEvents().get(0)).isEqualTo(____);
     }
