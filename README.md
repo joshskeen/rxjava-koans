@@ -23,5 +23,3 @@ Run the test suite by right clicking on `src/test/java` and selecting `Run 'All 
 
 For more information about Functional Reactive Programming with RxJava, [check out my article on the topic](http://www.bignerdranch.com/blog/what-is-functional-reactive-programming/).
 
-
-This project began its life as a direct port of https://github.com/mattpodwysocki/RxJSKoans. It aspires to add more rx-java specific challenges. Pull requests and feedback accepted!
