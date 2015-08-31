@@ -23,8 +23,6 @@ public class lessonC_BooleanLogicAndErrorHandling {
 
     private static final Observable<?> ________ = null;
     public int mSum;
-    public String mStringA;
-    public String mStringB;
     public Boolean mBooleanValue;
 
     private String _____;
@@ -32,7 +30,6 @@ public class lessonC_BooleanLogicAndErrorHandling {
     private Object ______ = "";
     private Boolean _________;
     private TestSubscriber<Object> mSubscriber;
-    private List<Observable<Observable>> mField;
 
     Func1<ElevatorPassenger, Boolean> _______ = elevatorPassenger -> false;
     Observable<Boolean> __________;

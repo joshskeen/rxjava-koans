@@ -11,7 +11,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class lessonA_CreatingObservableStreams {
 
-    private Object mReceived;
     private Integer mSum;
     private String _____;
     private int ____;
@@ -36,13 +35,13 @@ public class lessonA_CreatingObservableStreams {
      * It gives us an easy way to check what was emitted on the pipeline.
      */
     @Test
-    public void _1_anObservableStreamOfEventsEmitsEachItemInOrder() {
+    public void _1_anObservableStreamOfE_1_anObservableStreamOfEventsEmitsEachItemInOrderventsEmitsEachItemInOrder() {
         Observable<String> pipelineOfData = Observable.just("Foo", "Bar");
         pipelineOfData.subscribe(mSubscriber);
         List<Object> dataEmitted = mSubscriber.getOnNextEvents();
-        assertThat(dataEmitted).hasSize(____);
-        assertThat(dataEmitted).containsOnlyOnce(_____);
-        assertThat(dataEmitted).containsOnlyOnce(_____);
+        assertThat(dataEmitted).hasSize(2);
+        assertThat(dataEmitted).containsOnlyOnce("Foo");
+        assertThat(dataEmitted).containsOnlyOnce("Bar");
     }
 
     /**

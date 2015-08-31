@@ -20,7 +20,6 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
     public String mStringB;
     private String mStringC;
     private TestSubscriber<Object> mSubscriber;
-    private List<Observable<Observable>> mField;
 
     @Before
     public void setup() {

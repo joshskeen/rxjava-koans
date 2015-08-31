@@ -10,12 +10,9 @@ public class lessonD_AdvancedStreams {
 
     public String mReceived = "";
     public String _____;
-    public Integer _______;
 
     private String mEvenNums = "";
     private String mOddNums = "";
-    private Observable<Double> ________;
-    private Func1<? super Double, ?> ____________;
 
     /*
     So far everything has been pretty linear. Our pipelines all took the form:
