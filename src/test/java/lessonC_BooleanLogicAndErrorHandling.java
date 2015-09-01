@@ -25,7 +25,6 @@ public class lessonC_BooleanLogicAndErrorHandling {
     public int mSum;
     public Boolean mBooleanValue;
 
-    private String _____;
     private int ____;
     private Object ______ = "";
     private Boolean _________;

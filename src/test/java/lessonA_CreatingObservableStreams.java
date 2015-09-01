@@ -14,7 +14,6 @@ public class lessonA_CreatingObservableStreams {
     private Integer mSum;
     private String _____;
     private int ____;
-    private Object ______ = "";
     private TestSubscriber<Object> mSubscriber;
     private int mCount1;
     private int mCount2;
@@ -35,13 +34,13 @@ public class lessonA_CreatingObservableStreams {
      * It gives us an easy way to check what was emitted on the pipeline.
      */
     @Test
-    public void _1_anObservableStreamOfE_1_anObservableStreamOfEventsEmitsEachItemInOrderventsEmitsEachItemInOrder() {
+    public void _1_anObservableStreamOfEventsAndDataEmitsEachItemInOrder() {
         Observable<String> pipelineOfData = Observable.just("Foo", "Bar");
         pipelineOfData.subscribe(mSubscriber);
         List<Object> dataEmitted = mSubscriber.getOnNextEvents();
-        assertThat(dataEmitted).hasSize(2);
-        assertThat(dataEmitted).containsOnlyOnce("Foo");
-        assertThat(dataEmitted).containsOnlyOnce("Bar");
+        assertThat(dataEmitted).hasSize(____);
+        assertThat(dataEmitted).containsOnlyOnce(_____);
+        assertThat(dataEmitted).containsOnlyOnce(_____);
     }
 
     /**
@@ -65,7 +64,7 @@ public class lessonA_CreatingObservableStreams {
     @Test
     public void _2_anObservableStreamEmitsThreeMajorEventTypes() {
         Observable<Integer> pipelineOfData = Observable.just(1, 2, 3, 4, 5);
-        pipelineOfData.doOnNext(integer -> mCount1++)
+        pipelineOfData.doOnNext(integer -> mCount1+=integer)
                 .doOnCompleted(() -> mCount2++)
                 .doOnError(throwable -> mCount3++)
                 .subscribe(mSubscriber);

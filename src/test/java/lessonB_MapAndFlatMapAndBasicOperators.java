@@ -15,7 +15,6 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
 
     private String _____;
     private int ____;
-    private Object ______ = "";
     public String mStringA;
     public String mStringB;
     private String mStringC;
