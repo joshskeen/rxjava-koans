@@ -9,6 +9,15 @@ public class LessonResources {
 
     public static class ElevatorPassenger {
         private String mName;
+
+        public int getWeightInPounds() {
+            return mWeightInPounds;
+        }
+
+        public String getName() {
+            return mName;
+        }
+
         public int mWeightInPounds;
 
         public ElevatorPassenger(String name, int weightInPounds) {
