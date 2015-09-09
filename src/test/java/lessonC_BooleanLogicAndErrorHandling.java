@@ -168,6 +168,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
         Observable<Integer> range = Observable.range(1, 10);
         //hmmmmmmmm.. how can we emit 1 value of 19 from the original range of numbers?
         assertThat(mSum).isEqualTo(19);
+        //HINT: Could you use the MathObservable, with one of the operators you have learned about already to accomplish a result of 19?
     }
 
     /**
