@@ -1,4 +1,5 @@
-import org.junit.Test;
+package solutions;
+
 import rx.Observable;
 import rx.functions.Func1;
 import rx.observables.GroupedObservable;

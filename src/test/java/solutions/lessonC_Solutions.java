@@ -1,7 +1,5 @@
 package solutions;
 
-import org.junit.Before;
-import org.junit.Test;
 import rx.Observable;
 import rx.functions.Func1;
 import rx.functions.Func3;
