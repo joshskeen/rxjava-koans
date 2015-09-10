@@ -1,5 +1,6 @@
 package solutions;
 
+import org.junit.Test;
 import rx.Observable;
 import rx.functions.Func1;
 import rx.functions.Func3;
@@ -72,13 +73,13 @@ public class lessonC_Solutions {
          * Lets define our elevator rule: the total weight of all passengers aboard an elevator may not be larger than 500 pounds
          */
 
-        Func1<ElevatorPassenger, Boolean> elevatorRule = passenger -> elevator.getTotalWeight() + passenger.mWeightInPounds < Elevator.MAX_CAPACITY_POUNDS;
+        Func1<ElevatorPassenger, Boolean> elevatorRule = passenger -> elevator.getTotalWeightInPounds() + passenger.mWeightInPounds < Elevator.MAX_CAPACITY_POUNDS;
         /**
          * Now all we need to do is to plug in the rule in takeWhile()
          */
         elevatorQueueOne.takeWhile(elevatorRule).doOnNext(elevator::addPassenger).subscribe(mSubscriber);
         assertThat(elevator.getPassengerCount()).isGreaterThan(0);
-        assertThat(elevator.getTotalWeight()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
+        assertThat(elevator.getTotalWeightInPounds()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
         assertThat(elevator.getPassengerCount()).isEqualTo(2);
         System.out.println("elevator stats: " + elevator);
         /**
@@ -90,7 +91,7 @@ public class lessonC_Solutions {
 
         elevatorQueueTwo.takeWhile(elevatorRule).subscribe(elevator::addPassenger);
         assertThat(elevator.getPassengerCount()).isGreaterThan(0);
-        assertThat(elevator.getTotalWeight()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
+        assertThat(elevator.getTotalWeightInPounds()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
         assertThat(elevator.getPassengerCount()).isEqualTo(2);
 
         mSubscriber = new TestSubscriber<>();
@@ -104,12 +105,23 @@ public class lessonC_Solutions {
     }
 
     /**
-     * Next on our tour, we will see .amb(). Stands for Ambiguous - a somewhat mysterious name (traces its historical roots to the 60')!
+     * Next on our tour, we will see .amb(). Stands for Ambiguous - a somewhat mysterious name (traces its historical roots to the 60's)!
      * What it does is it moves forward with the first of a set of Observables to emit an event.
      * <p>
      * Useful in this situation below : 3 servers with the same data, but different response times.
      * Give us the fastest!
      */
+
+    @Test
+    public void test(){
+        TestSubscriber<String> stringTestSubscriber = new TestSubscriber<>();
+        Observable.amb(
+                Observable.just("FOO").delay(100l, TimeUnit.MILLISECONDS),
+                Observable.just("BAR").delay(200l, TimeUnit.MILLISECONDS)
+        ).subscribe(stringTestSubscriber);
+        stringTestSubscriber.awaitTerminalEvent();
+        System.out.println(stringTestSubscriber.getOnNextEvents());
+    }
 
     public void AmbStandsForAmbiguousAndTakesTheFirstOfTwoObservablesToEmitData() {
 
@@ -129,6 +141,8 @@ public class lessonC_Solutions {
         /**
          * Do we have several servers that give the same data and we want the fastest of the three?
          */
+
+
 
         Observable.amb(networkA, networkB, networkC).subscribe(mSubscriber);
         mSubscriber.awaitTerminalEvent(); //needed, since the delay causes
@@ -205,7 +219,6 @@ public class lessonC_Solutions {
         assertThat(mSubscriber.getOnNextEvents().get(0)).isEqualTo("extremely important data");
     }
 
-
     /**
      * In this experiment, we will use RxJava to pick a lock. Our lock has three tumblers. We will need them all to be up to unlock the lock!
      */
@@ -221,7 +234,7 @@ public class lessonC_Solutions {
             return allTumblersUnlocked;
         };
 
-        Observable<Boolean> lockIsPickedObservable = Observable.combineLatest(tumbler1Observable, tumbler2Observable, tumbler3Observable, combineTumblerStatesFunction).takeUntil(unlocked -> unlocked == true).last();
+        Observable<Boolean> lockIsPickedObservable = Observable.combineLatest(tumbler1Observable, tumbler2Observable, tumbler3Observable, combineTumblerStatesFunction).takeUntil(unlocked -> unlocked).last();
         lockIsPickedObservable.subscribe(mSubscriber);
         mSubscriber.awaitTerminalEvent();
         List<Object> onNextEvents = mSubscriber.getOnNextEvents();
