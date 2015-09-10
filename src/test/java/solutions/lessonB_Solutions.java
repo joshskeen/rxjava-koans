@@ -1,7 +1,5 @@
 package solutions;
 
-import org.junit.Before;
-import org.junit.Test;
 import rx.Observable;
 import rx.functions.Func1;
 import rx.observers.TestSubscriber;
@@ -15,13 +13,9 @@ import static util.LessonResources.ElevatorPassenger;
 
 public class lessonB_Solutions {
 
-    private String _____;
-    private int ____;
-    private Object ______ = "";
     public String mStringA;
     public String mStringB;
     private TestSubscriber<Object> mSubscriber;
-    private List<Observable<Observable>> mField;
 
     public void setup() {
         mSubscriber = new TestSubscriber<>();
@@ -206,7 +200,7 @@ public class lessonB_Solutions {
     public void convertingEvents() {
         mStringA = "";
         Observable.just("wE", "hOpe", "yOU", "aRe", "eNjOyInG", "thIS")
-                .map(s -> s.toLowerCase())
+                .map(String::toLowerCase)
                 .subscribe(s -> mStringA += s + " ");
 
         assertThat(mStringA).isEqualTo("we hope you are enjoying this ");
