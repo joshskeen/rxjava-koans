@@ -59,7 +59,7 @@ public class LessonResources {
             mPassengers.add(passenger);
         }
 
-        public int getTotalWeight() {
+        public int getTotalWeightInPounds() {
             return Observable.from(mPassengers).reduce(0, (accumulatedWeight, elevatorPassenger) ->
                     elevatorPassenger.mWeightInPounds + accumulatedWeight)
                     .toBlocking().last();
@@ -77,7 +77,7 @@ public class LessonResources {
         public String toString() {
             return "Elevator{" +
                     "mPassengers=" + mPassengers + "\n" +
-                    "totalWeight=" + getTotalWeight() +
+                    "totalWeight=" + getTotalWeightInPounds() +
                     '}';
         }
 
