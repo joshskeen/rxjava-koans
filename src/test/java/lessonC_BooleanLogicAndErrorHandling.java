@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 import rx.Observable;
+import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.functions.Func3;
 import rx.observables.MathObservable;
@@ -71,6 +72,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
          *
          * Riddle: Lets define our elevator rule: the total weight of all passengers aboard an elevator may not be larger than 500 pounds.
          * How!?!
+         * Hint: Check out the Public methods available on LessonResources.Elevator and passenger!
          */
 
         Func1<ElevatorPassenger, Boolean> elevatorRule = passenger -> ____ + ____ < ____;
@@ -79,7 +81,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
          */
         elevatorQueueOne.takeWhile(_______).doOnNext(elevator::addPassenger).subscribe(mSubscriber);
         assertThat(elevator.getPassengerCount()).isGreaterThan(0);
-        assertThat(elevator.getTotalWeight()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
+        assertThat(elevator.getTotalWeightInPounds()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
         assertThat(elevator.getPassengerCount()).isEqualTo(2);
         System.out.println("elevator stats: " + elevator);
         /**
@@ -91,7 +93,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
 
         elevatorQueueTwo.takeWhile(elevatorRule).subscribe(elevator::addPassenger);
         assertThat(elevator.getPassengerCount()).isGreaterThan(0);
-        assertThat(elevator.getTotalWeight()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
+        assertThat(elevator.getTotalWeightInPounds()).isLessThan(Elevator.MAX_CAPACITY_POUNDS);
         assertThat(elevator.getPassengerCount()).isEqualTo(2);
 
         /**
@@ -210,7 +212,6 @@ public class lessonC_BooleanLogicAndErrorHandling {
         networkRequestObservable.retry(____).subscribe(mSubscriber);
         assertThat(mSubscriber.getOnNextEvents().get(0)).isEqualTo("extremely important data");
     }
-
 
     /**
      * In this experiment, we will use RxJava to pick a lock. Our lock has three tumblers. We will need them all to be up to unlock the lock!
