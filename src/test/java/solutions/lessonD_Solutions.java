@@ -4,6 +4,8 @@ import rx.Observable;
 import rx.functions.Func1;
 import rx.observables.GroupedObservable;
 
+import java.util.Objects;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 
@@ -47,14 +49,17 @@ public class lessonD_Solutions {
     public void splittingUp() {
         Observable.range(1, 9)
                 .groupBy(integer -> {
-                    // ____
-                    return _____;
+                    if (integer % 2 == 0) {
+                        return "even";
+                    } else {
+                        return "odd";
+                    }
                 })
                 .subscribe(group -> group.subscribe(integer -> {
                     String key = group.getKey();
-                    if (key == "even") {
+                    if (Objects.equals(key, "even")) {
                         mEvenNums = mEvenNums + integer;
-                    } else if (key == "odd") {
+                    } else if (Objects.equals(key, "odd")) {
                         mOddNums = mOddNums + integer;
                     }
                 }));
