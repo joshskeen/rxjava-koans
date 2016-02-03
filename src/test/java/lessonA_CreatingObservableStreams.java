@@ -69,9 +69,9 @@ public class lessonA_CreatingObservableStreams {
                 .doOnError(throwable -> mCount3++)
                 .subscribe(mSubscriber);
         mSubscriber.awaitTerminalEvent();
-        assertThat(mCount1).isEqualTo(15);
-        assertThat(mCount2).isEqualTo(1);
-        assertThat(mCount3).isEqualTo(0);
+        assertThat(mCount1).isEqualTo(____);
+        assertThat(mCount2).isEqualTo(____);
+        assertThat(mCount3).isEqualTo(____);
     }
 
 
