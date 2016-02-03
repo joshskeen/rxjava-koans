@@ -64,7 +64,7 @@ public class lessonA_CreatingObservableStreams {
     @Test
     public void _2_anObservableStreamEmitsThreeMajorEventTypes() {
         Observable<Integer> pipelineOfData = Observable.just(1, 2, 3, 4, 5);
-        pipelineOfData.doOnNext(integer -> mCount1+=integer)
+        pipelineOfData.doOnNext(integer -> mCount1++)
                 .doOnCompleted(() -> mCount2++)
                 .doOnError(throwable -> mCount3++)
                 .subscribe(mSubscriber);
