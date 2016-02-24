@@ -50,9 +50,9 @@ public class lessonD_AdvancedStreams {
                 })
                 .subscribe(group -> group.subscribe(integer -> {
                     String key = group.getKey();
-                    if (key == "even") {
+                    if ("even".equals(key)) {
                         mEvenNums = mEvenNums + integer;
-                    } else if (key == "odd") {
+                    } else if ("odd".equals(key)) {
                         mOddNums = mOddNums + integer;
                     }
                 }));
