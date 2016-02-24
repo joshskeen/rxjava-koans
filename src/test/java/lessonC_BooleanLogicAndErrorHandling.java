@@ -33,6 +33,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
 
     Func1<ElevatorPassenger, Boolean> _______ = elevatorPassenger -> false;
     Observable<Boolean> __________;
+    private Object mThrowable;
 
     @Before
     public void setup() {
@@ -184,8 +185,7 @@ public class lessonC_BooleanLogicAndErrorHandling {
     public void _5_onErrorIsCalledWhenErrorsOccur() {
         List<String> arrayOne = new ArrayList<>();
         List<String> arrayTwo = new ArrayList<>();
-        List<String> arrayThree = null;
-        Object mThrowable = null;
+        List<String> arrayThree =  null;
         Observable.just(arrayOne, arrayTwo, arrayThree).map(new Func1<List<String>, List<String>>() {
             @Override
             public List<String> call(List<String> strings) {
