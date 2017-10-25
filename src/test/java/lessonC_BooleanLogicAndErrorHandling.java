@@ -73,8 +73,10 @@ public class lessonC_BooleanLogicAndErrorHandling {
          *
          * Riddle: Lets define our elevator rule: the total weight of all passengers aboard an elevator may not be larger than 500 pounds.
          * How!?!
-         * Hint: Check out the Public methods available on LessonResources.Elevator and passenger!
-         */
+         *
+         * Hint: Check out the Public methods available on
+         * {@link LessonResources.Elevator} and {@link LessonResources.ElevatorPassenger}!
+         * */
 
         Func1<ElevatorPassenger, Boolean> elevatorRule = passenger -> ____ + ____ < ____;
         /**
