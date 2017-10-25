@@ -19,7 +19,7 @@ public class lessonD_AdvancedStreams {
      * "do this, then do this, then do this, then end". In reality we can combine pipelines. We can take two streams
      * and turn them into a single stream.
      *
-     * Now its worth nothing this is different from what we did when we nested Observables. In that case we always had one stream.
+     * Now its worth noting this is different from what we did when we nested Observables. In that case we always had one stream.
      * Lets take a stream of integers and a stream of strings and join them.
      */
     @Test
