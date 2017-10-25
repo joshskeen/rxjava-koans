@@ -33,7 +33,7 @@ public class lessonD_AdvancedStreams {
     }
 
     /**
-     * We can also split up a single stream into two streams. We are going to to use the groupBy() action.
+     * We can also split up a single stream into two streams. We are going to use the groupBy() action.
      * This action can be a little tricky because it emits an observable of observables. So we need to subscribe to the
      * "parent" observable and each emitted observable.
      *
