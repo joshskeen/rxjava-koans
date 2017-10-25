@@ -136,7 +136,7 @@ public class lessonA_CreatingObservableStreams {
      * So if we are going to build an observable and not subscribe to it until later on, how can we include the all
      * of the functionality as before? Do we have to put all the work inside subscribe() ? No we don't!
      * <p>
-     * If we peek at the Observer interface we see it has three methods:
+     * If we peek at the {@link rx.Observer} interface we see it has three methods:
      * <p>
      * public interface Observer<T> {
      * void onCompleted();
