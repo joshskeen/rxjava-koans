@@ -190,6 +190,7 @@ public class lessonB_Solutions {
                 .subscribe();
         assertThat(mStringA).isEqualTo("123456");
         assertThat(mStringB).isEqualTo("246");
+        //assertThat(mStringC).isEqualTo("112233445566"); // Uncommenting this will produce errors
     }
 
     /**
