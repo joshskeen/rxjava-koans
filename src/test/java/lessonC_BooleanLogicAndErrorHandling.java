@@ -106,6 +106,8 @@ public class lessonC_BooleanLogicAndErrorHandling {
          */
         mSubscriber = new TestSubscriber<>();
         //
+        // Lets start by emptying our elevator
+        // elevator.unload();
         // ???
         //
         // assertThat(mSubscriber.getOnNextEvents()).hasSize(3);
