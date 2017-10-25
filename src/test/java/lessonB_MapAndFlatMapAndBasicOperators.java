@@ -90,9 +90,13 @@ public class lessonB_MapAndFlatMapAndBasicOperators {
         /** Was the result above what you expected? A bit strange huh? You'd think that you'd get
          * a value matching the number of items of foods in each list at first glance.
          * The reason we get a different result is because of the difference between map(), and flatmap(), which we will see next.
+         *
          * map() will always keep the SAME NUMBER OF events/ data as the previous segment in the pipeline. It can never change the number
          * of items on the previous piece of the pipeline.
-
+         *
+         * In other words, our call to map() applies a function to each item in the foodcartItemsObservable.
+         * Within this function, we return Observable(s), of type carnivalFood, for each item in our foodcartItemsObservable.
+         *
          * Next, we would like to begin filtering the list to match what we can afford to eat.
          * The problem now is that rather than Observable<Food> items, we are emitting Observable<Observable<Food>>s instead.
          * We can't filter these, because Observable has no price (its content does, but we cant access that).
